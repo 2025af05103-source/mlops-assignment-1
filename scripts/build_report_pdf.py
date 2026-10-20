@@ -489,7 +489,7 @@ pdf.set_text_color(0, 0, 0)
 pdf.cell(
     0,
     7,
-    "Course: MLOps (AIMLCZG523)   |   Student: Shubham Joshi   |   " "ID: 2025AF05103",
+    "Course: MLOps (AIMLZG523)   |   Student: Shubham Joshi   |   " "ID: 2025AF05103",
     new_x="LMARGIN",
     new_y="NEXT",
 )

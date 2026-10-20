@@ -1,6 +1,6 @@
 # Heart Disease Risk Prediction — MLOps Assignment 1 Report
 
-**Course:** MLOps (AIMLCZG523) | **Student:** [Your Name] | **Date:** October 2026
+**Course:** MLOps (AIMLZG523) | **Student:** [Your Name] | **Date:** October 2026
 
 ## 1. Overview
 
