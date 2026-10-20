@@ -1,0 +1,3 @@
+tags.mlflow.runName,metrics.cv_roc_auc,metrics.test_roc_auc,metrics.test_accuracy,metrics.test_precision,metrics.test_recall,status
+random_forest,0.8954,0.942,0.8333,0.875,0.75,FINISHED
+logistic_regression,0.9028,0.9408,0.8167,0.8696,0.7143,FINISHED

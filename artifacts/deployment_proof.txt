@@ -1,0 +1,31 @@
+# Deployment proof — Docker Desktop Kubernetes, Sun Oct 18 02:26:50 IST 2026
+
+## Cluster
+NAME             STATUS   ROLES           AGE     VERSION
+docker-desktop   Ready    control-plane   2m56s   v1.32.2
+
+## Workloads
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/grafana-7c58f994d4-85t8j             1/1     Running   0          2m10s
+pod/heart-disease-api-78b7f9646d-2427k   1/1     Running   0          2m34s
+pod/heart-disease-api-78b7f9646d-rpp2d   1/1     Running   0          2m34s
+pod/prometheus-5b49645647-4bm8t          1/1     Running   0          2m10s
+
+NAME                        TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/grafana             LoadBalancer   10.104.55.155    localhost     3000:31180/TCP   2m10s
+service/heart-disease-api   LoadBalancer   10.110.41.56     localhost     80:31065/TCP     2m34s
+service/kubernetes          ClusterIP      10.96.0.1        <none>        443/TCP          2m55s
+service/prometheus          ClusterIP      10.105.149.140   <none>        9090/TCP         2m10s
+
+## Endpoint verification (via LoadBalancer, localhost:80)
+$ curl localhost/health
+{"status":"ok","model_loaded":true}
+$ curl -X POST localhost/predict -d @data/sample_input.json
+{"prediction":0,"label":"no heart disease","confidence":0.7478,"risk_score":0.2522}
+$ curl -X POST localhost/predict (high-risk patient)
+{"prediction":1,"label":"heart disease","confidence":0.668,"risk_score":0.668}
+
+## Prometheus target status
+heart-disease-api: up (scraped every 15s)
+## Predictions counter observed in Prometheus
+predictions_total{predicted_class="0"} = 3+; predictions_total{predicted_class="1"} = 1+

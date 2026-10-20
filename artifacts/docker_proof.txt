@@ -1,0 +1,8 @@
+# Docker build/run proof — Sun Oct 18 01:53:20 IST 2026
+$ docker build -t heart-disease-api:latest -f docker/Dockerfile .
+# (image built, sha256 b9730927...)
+$ docker run -d --name heart-api-test -p 8001:8000 heart-disease-api:latest
+$ curl localhost:8001/health
+{"status":"ok","model_loaded":true}
+$ curl -X POST localhost:8001/predict -H "Content-Type: application/json" -d @data/sample_input.json
+{"prediction":0,"label":"no heart disease","confidence":0.7478,"risk_score":0.2522}

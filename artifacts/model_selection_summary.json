@@ -1,0 +1,30 @@
+{
+  "selected_model": "random_forest",
+  "selection_criterion": "highest holdout ROC-AUC",
+  "results": [
+    {
+      "name": "logistic_regression",
+      "test_roc_auc": 0.9408482142857143,
+      "test_metrics": {
+        "accuracy": 0.8166666666666667,
+        "precision": 0.8695652173913043,
+        "recall": 0.7142857142857143,
+        "roc_auc": 0.9408482142857143,
+        "f1": 0.7843137254901961
+      },
+      "cv_roc_auc": 0.9027818847818849
+    },
+    {
+      "name": "random_forest",
+      "test_roc_auc": 0.9419642857142857,
+      "test_metrics": {
+        "accuracy": 0.8333333333333334,
+        "precision": 0.875,
+        "recall": 0.75,
+        "roc_auc": 0.9419642857142857,
+        "f1": 0.8076923076923077
+      },
+      "cv_roc_auc": 0.8954265734265736
+    }
+  ]
+}
